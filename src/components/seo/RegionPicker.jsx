@@ -1,0 +1,3 @@
+import { useState,useEffect } from 'react'
+import { REGIONS,detectRegion } from '../../lib/geo'
+export default function RegionPicker({onChange}){const [region,setRegion]=useState(detectRegion());useEffect(()=>{onChange?.(region)},[region]);return(<div className="inline-flex items-center gap-2 text-sm"><span className="text-slate-600">Region:</span><select value={region.code} onChange={e=>setRegion(REGIONS.find(r=>r.code===e.target.value))} className="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-800">{REGIONS.map(r=><option key={r.code} value={r.code}>{r.name}</option>)}</select></div>)}

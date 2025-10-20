@@ -1,0 +1,2 @@
+export const REGIONS=[{code:'US',name:'United States'},{code:'GB',name:'United Kingdom'},{code:'CA',name:'Canada'},{code:'AU',name:'Australia'},{code:'IN',name:'India'},{code:'SE',name:'Sweden'},{code:'DE',name:'Germany'},{code:'FR',name:'France'}];
+export function detectRegion(){try{const nav=navigator?.language||'en-US';const cc=nav.split('-')[1]||'US';return REGIONS.find(r=>r.code===cc)||REGIONS[0]}catch{return REGIONS[0]}}
